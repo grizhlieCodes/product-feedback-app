@@ -33,6 +33,7 @@
           }
         ]
       },
+
       {
         "id": 2,
         "title": "Add a dark theme option",
@@ -81,6 +82,7 @@
           }
         ]
       },
+
       {
         "id": 3,
         "title": "Q&A within the challenge hubs",
@@ -100,13 +102,14 @@
           }
         ]
       },
+
       {
         "id": 4,
         "title": "Add image/video upload to feedback",
         "category": "enhancement",
         "upvotes": 51,
         "status": "suggestion",
-        "description": "Images and screencasts can enhance comments on solutions.",
+        "description": "Images and screencasts can enhance commentz on solutions.",
         "comments": [
           { 
             "id": 6,
@@ -134,7 +137,7 @@
         "category": "feature",
         "upvotes": 42,
         "status": "suggestion",
-        "description": "Stay updated on comments and solutions other people post.",
+        "description": "Stay updated on commentz and solutions other people post.",
         "comments": [
           {
             "id": 8,
@@ -167,14 +170,17 @@
           }
         ]
       },
+
       {
         "id": 6,
         "title": "Preview images not loading",
         "category": "bug",
         "upvotes": 3,
         "status": "suggestion",
-        "description": "Challenge preview images are missing when you apply a filter."
+        "description": "Challenge preview images are missing when you apply a filter.",
+        "comments": []
       },
+
       {
         "id": 7,
         "title": "More comprehensive reports",
@@ -266,7 +272,8 @@
         "category": "bug",
         "upvotes": 9,
         "status": "in-progress",
-        "description": "Screenshots of solutions with animations don’t display correctly."
+        "description": "Screenshots of solutions with animations don’t display correctly.",
+        "comments": []
       },
       {
         "id": 12,
