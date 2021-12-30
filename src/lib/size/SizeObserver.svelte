@@ -13,8 +13,8 @@
 	import sizeStore from '$lib/size/sizeStore.js';
 	export let showDescription = false;
 	let innerWidth;
-	$: realWidth = innerWidth - 10;
-	$: sizeStore.updateStore(calcRealSize(realWidth));
+	// $: realWidth = innerWidth - 10;
+	$: sizeStore.updateStore(calcRealSize(innerWidth));
 </script>
 
 <svelte:window bind:innerWidth />
