@@ -35,7 +35,7 @@
 
 <div
 	transition:fly={{ y: -50 }}
-	class=" absolute min-w-[25.5rem] h-max rounded-[1rem] bg-white top-[calc(100%+4.2rem)] left-0
+	class=" z-[var(--sort-menu)] absolute min-w-[25.5rem] h-max rounded-[1rem] bg-white top-[calc(100%+4.2rem)] left-0
 	shadow-xl">
 	{#each sortMenuOptions as { name, option }}
 		<SortButton {name} {option} on:closeSortMenu on:updateSortOption/>
