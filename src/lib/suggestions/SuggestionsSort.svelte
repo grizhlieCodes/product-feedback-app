@@ -21,6 +21,12 @@
 	//Functions
 	const toggleSortMenu = () => (showSortMenu = !showSortMenu);
 
+	const updateSortOption = (e) => {
+		let option = e.detail
+		uiStore.updateSort(option)
+		suggestions.sortSuggestions(option)
+	}
+
 	//Variables
 	$: sortOption = sortMenuOptions.find(o => o.option === $uiStore.sort).name
 </script>
@@ -60,7 +66,8 @@ justify-between tablet:justify-start tablet:gap-[3.8rem] ">
 			</div>
 		</button>
 		{#if showSortMenu}
-			<SortMenu {sortMenuOptions} {showSortMenu} on:closeSortMenu={toggleSortMenu} />
+			<SortMenu {sortMenuOptions} {showSortMenu}
+			on:closeSortMenu={toggleSortMenu} on:updateSortOption={updateSortOption} />
 		{/if}
 	</div>
 
