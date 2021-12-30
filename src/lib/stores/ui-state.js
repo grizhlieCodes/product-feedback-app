@@ -9,14 +9,14 @@ const customUiStore = {
             store.category = category
             return store
         })
-        console.log(get(uiStore))
+        // console.log(get(uiStore))
     },
     updateSort: (sort) => {
         uiStore.update(store => {
             store.sort = sort
             return store
         })
-        console.log(get(uiStore))
+        // console.log(get(uiStore))
     },
 }
 
