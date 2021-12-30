@@ -1,17 +1,27 @@
 <script>
+	//Svelte
 	import { fly, fade } from 'svelte/transition';
-	export let option = '',
-		name = '';
+	import { createEventDispatcher } from 'svelte';
+	const dispatch = createEventDispatcher();
+
+	//Data
+	export let option = '', name = '';
 	import uiStore from '$lib/stores/ui-state.js';
+
+	//Variables
 	$: buttonActive = $uiStore.sort.toLowerCase() === option.toLowerCase();
 	$: buttonCol = buttonActive ? 'text-violet' : 'text-blue-600';
+
+	//Functions
+	
 	const updateSortOption = (sortOption) => uiStore.updateSort(sortOption);
 </script>
 
 <button
 	on:click={() => {
 		updateSortOption(option);
-		console.log('worked');
+		dispatch('closeSortMenu');
+		dispatch('updateSortOption', option)
 	}}
 	class=" flex justify-between items-center h-[4.8rem] w-full text-[1.6rem] py-[1.2rem] px-[2.4rem]
 	text-left transition-colors border-0 border-b border-b-blue-800 border-solid border-opacity-[0.15]
