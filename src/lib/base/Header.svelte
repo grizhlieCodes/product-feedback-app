@@ -17,7 +17,7 @@ overflow-hidden tablet:min-h-[17.8rem] desktop:max-w-[25.5rem] desktop:min-h-[13
     <!-- Logo -->
     <div class="w-max flex flex-col flex-nowrap">
         <span class=" font-semibold text-[1.5rem] leading-9 text-white
-        tracking-[-0.01875rem] tablet:text-[2rem] tablet:leading-[2.9rem] tablet:tracking-[-0.0.25rem]">Frontend Mentor</span>
+        tracking-[-0.01875rem] tablet:text-[2rem] tablet:leading-[2.9rem] tablet:tracking-[-0.025rem]">Frontend Mentor</span>
         <span class=" font-medium text-[1.3rem] leading-[1.9rem] text-white
         opacity-75 tablet:text-[1.5rem] tablet:leading-[2.2rem]">Feedback Board</span>
     </div>
