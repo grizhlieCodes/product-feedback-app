@@ -1,9 +1,16 @@
 <script>
     import uiStore from '$lib/stores/ui-state.js'
+    import suggestions from '$lib/stores/suggestions.js'
 
     export let badgeText;
     const clickBadge = () => {
         uiStore.updateCategory(badgeText)
+        suggestions.filterSuggestions(badgeText)
+        // Below is inefficient I think. Actually.
+        //I think Svelte doesn't rerender the HTML because of the below sort
+        //suggestions function. I think it instead just changes the order of
+        //things in HTML somehow???? idk.
+        suggestions.sortSuggestions($uiStore.sort)
     };
 
     $: badgeIsActive = badgeText.toLowerCase() === $uiStore.category.toLowerCase()
