@@ -1,16 +1,17 @@
 <script>
+    import uiStore from '$lib/stores/ui-state.js'
 
-    import { createEventDispatcher } from 'svelte';
-    const dispatch = createEventDispatcher();
-
-    export let badgeText, chosenBadge;
-    const activateBadge = () => {
-        dispatch('activateBadge', badgeText)
+    export let badgeText;
+    const clickBadge = () => {
+        uiStore.updateCategory(badgeText)
     };
+
+    $: badgeIsActive = badgeText.toLowerCase() === $uiStore.category.toLowerCase()
+
 </script>
 
-<button on:click={activateBadge} class="rounded-[1rem] px-[1.6rem] py-[0.5rem] grid
+<button on:click={clickBadge} class="rounded-[1rem] px-[1.6rem] py-[0.5rem] grid
 place-items-center hover:cursor-pointer transition-colors
-{chosenBadge === badgeText ? 'bg-blue-500 text-white' : 'text-blue-500 bg-blue-100 hover:bg-blue-200'}">
+{badgeIsActive ? 'bg-blue-500 text-white' : 'text-blue-500 bg-blue-100 hover:bg-blue-200'}">
     <span class="text-[1.3rem] font-semibold">{badgeText}</span>
 </button>
