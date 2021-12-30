@@ -1,5 +1,5 @@
 <script>
-    export let gridColStart, gridRowStart, maxWidth
+    export let gridColStart = '', gridRowStart = '', maxWidth = ''
 
 </script>
 

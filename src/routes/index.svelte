@@ -1,5 +1,5 @@
 <script>	
- import AllMenuItems from '$lib/homepage/AllMenuItems.svelte'
+ import MainPageItems from '$lib/ui/MainPageItems.svelte';
 </script>
 
-<AllMenuItems />
+<MainPageItems />
