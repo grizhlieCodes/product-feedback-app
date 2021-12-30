@@ -31,8 +31,8 @@
 	$: sortOption = sortMenuOptions.find(o => o.option === $uiStore.sort).name
 </script>
 
-<div class="bg-blue-800 py-[0.8rem] px-[2.4rem] w-full h-max flex
-justify-between tablet:justify-start tablet:gap-[3.8rem] ">
+<div class="bg-blue-800 py-[0.8rem] tablet:py-[1.4rem] px-[2.4rem] w-full h-max
+flex justify-between tablet:justify-start tablet:gap-[3.8rem] rounded-[1rem]">
 
 	<!-- Suggestions counter -->
 	{#if $size !== 'mobile'}
