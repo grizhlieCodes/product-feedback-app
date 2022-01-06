@@ -24,8 +24,7 @@
 	const toggleDropdownMenu = () => (showSortMenu = !showSortMenu);
 
 	const updateSortOption = (e) => {
-		let option = e.detail
-		uiStore.updateSort(option)
+		let {name, option} = e.detail
 		uiStore.updateSort(option)
 		suggestions.sortSuggestions(option)
 		activeButton = option
