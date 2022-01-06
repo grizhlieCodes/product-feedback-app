@@ -8,7 +8,6 @@
 	import RoadmapSummary from '$lib/roadmap/RoadmapSummary.svelte';
 	import SuggestionsSort from '$lib/suggestions/SuggestionsSort.svelte';
 	import SuggestionsList from '$lib/suggestions/SuggestionsList.svelte';
-
 </script>
 
 <Header on:mobileMenuClicked={() => (mobileMenuClicked = !mobileMenuClicked)} />
@@ -24,6 +23,6 @@
 
 <div class="flex flex-col gap-[3.2rem] tablet:gap-[2.4rem] tablet:col-span-3
 desktop:col-span-1 desktop:col-start-2 desktop:row-start-1 desktop:row-span-4">
-	<SuggestionsSort />
+	<SuggestionsSort on:addSuggestion />
 	<SuggestionsList />
 </div>
