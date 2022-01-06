@@ -1,9 +1,11 @@
 <script>
 	//Svelte
 	import { slide, fly } from 'svelte/transition';
+	import { createEventDispatcher } from 'svelte';
+	const dispatch = createEventDispatcher();
 
 	//Components
-	import SortMenu from '$lib/suggestions/SortMenu.svelte';
+	import DropdownMenu from '$lib/ui/DropdownMenu.svelte';
 	import size from '$lib/size/sizeStore.js'
 
 	//Data
@@ -11,7 +13,7 @@
 	import uiStore from '$lib/stores/ui-state.js'
 	let showSortMenu = false;
 
-	const sortMenuOptions = [
+	const dropdownMenuOptions = [
 		{ name: 'Most Upvotes', option: 'most-upvotes' },
 		{ name: 'Least Upvotes', option: 'least-upvotes' },
 		{ name: 'Most Comments', option: 'most-comments' },
@@ -19,16 +21,23 @@
 	];
 
 	//Functions
-	const toggleSortMenu = () => (showSortMenu = !showSortMenu);
+	const toggleDropdownMenu = () => (showSortMenu = !showSortMenu);
 
 	const updateSortOption = (e) => {
 		let option = e.detail
 		uiStore.updateSort(option)
+		uiStore.updateSort(option)
 		suggestions.sortSuggestions(option)
+		activeButton = option
 	}
 
+	const dispatchAddSuggestion = () => {
+		dispatch('addSuggestion')
+	};
+
 	//Variables
-	$: sortOption = sortMenuOptions.find(o => o.option === $uiStore.sort).name
+	$: sortOption = dropdownMenuOptions.find(o => o.option === $uiStore.sort).name
+	let activeButton = $uiStore.sort;
 </script>
 
 <div class="bg-blue-800 py-[0.8rem] tablet:py-[1.4rem] px-[2.4rem] w-full h-max
@@ -51,7 +60,7 @@ flex justify-between tablet:justify-start tablet:gap-[3.8rem] tablet:rounded-[1r
 	<!-- Sort Menu Toggle -->
 	<div class="relative flex items-center">
 
-		<button class="text-white text-[1.4rem] flex items-center gap-[0.4rem]" on:click={toggleSortMenu}>
+		<button class="text-white text-[1.4rem] flex items-center gap-[0.4rem]" on:click={toggleDropdownMenu}>
 			<span>Sort By</span>
 			<span>:</span>
 			{#key sortOption}
@@ -66,14 +75,15 @@ flex justify-between tablet:justify-start tablet:gap-[3.8rem] tablet:rounded-[1r
 			</div>
 		</button>
 		{#if showSortMenu}
-			<SortMenu {sortMenuOptions} {showSortMenu}
-			on:closeSortMenu={toggleSortMenu} on:updateSortOption={updateSortOption} />
+			<DropdownMenu {activeButton} {dropdownMenuOptions} {showSortMenu}
+			on:closeDropdownMenu={toggleDropdownMenu} on:updateDropdownOption={updateSortOption} />
 		{/if}
 	</div>
 
 	<!-- Add Feedback Btn -->
 	<button class="rounded-[1rem] text-white font-bold bg-violet 
-	px-[1.7rem] py-[1.05rem] text-[1.3rem] ml-auto">
+	px-[1.7rem] py-[1.05rem] text-[1.3rem] ml-auto" 
+	on:click={dispatchAddSuggestion}>
 		+ Add Feedback
 	</button>
 </div>

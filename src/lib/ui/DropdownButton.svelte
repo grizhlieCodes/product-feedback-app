@@ -5,23 +5,17 @@
 	const dispatch = createEventDispatcher();
 
 	//Data
-	export let option = '', name = '';
-	import uiStore from '$lib/stores/ui-state.js';
+	export let option = '', name = '', activeButton;
 
 	//Variables
-	$: buttonActive = $uiStore.sort.toLowerCase() === option.toLowerCase();
+	$: buttonActive = activeButton === option.toLowerCase();
 	$: buttonCol = buttonActive ? 'text-violet' : 'text-blue-600';
-
-	//Functions
-	
-	const updateSortOption = (sortOption) => uiStore.updateSort(sortOption);
 </script>
 
 <button
 	on:click={() => {
-		updateSortOption(option);
-		dispatch('closeSortMenu');
-		dispatch('updateSortOption', option)
+		dispatch('closeDropdownMenu');
+		dispatch('updateDropdownOption', {name, option})
 	}}
 	class=" flex justify-between items-center h-[4.8rem] w-full text-[1.6rem] py-[1.2rem] px-[2.4rem]
 	text-left transition-colors border-0 border-b border-b-blue-800 border-solid border-opacity-[0.15]
