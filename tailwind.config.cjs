@@ -9,6 +9,7 @@ const config = {
 		colors: {
 			'violet': 'hsl(282, 83%, 52%)',
 			'orange': 'hsl(14, 83%, 74%)',
+			'red': 'hsl(0, 67%, 53%)',
 			'blue-50': 'hsl(230, 60%, 98%)',
 			'blue-100': 'hsl(231, 86%, 97%)',
 			'blue-200': 'hsl(230, 100%, 90%)',
